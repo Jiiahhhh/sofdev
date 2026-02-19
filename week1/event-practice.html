@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="greetBtn">Say Hello</button>
+    <p id="greeting"></p>
+
+    <input type="text" id="nameInput" placeholder="Type your name" />
+    <p id="preview">You typed:</p>
+
+    <h1 id="counter">0</h1>
+    <button id="incrementBtn">Increment</button>
+    <button id="decrementBtn">Decrement</button>
+    <button id="resetBtn">Reset</button>
+
+    <hr />
+
+    <input type="text" id="textInput" placeholder="Type something..." />
+    <p id="charCount">Character count: 0</p>
+  </body>
+
+  <script>
+    const greetBtn = document.getElementById("greetBtn");
+    const greeting = document.getElementById("greeting");
+
+    greetBtn.addEventListener("click", () => {
+      greeting.textContent = "Hello from Javascript";
+    });
+
+    const nameInput = document.getElementById("nameInput");
+    const preview = document.getElementById("preview");
+
+    nameInput.addEventListener("input", () => {
+      preview.textContent = `You typed: ${nameInput.value}`;
+    });
+
+    greetBtn.addEventListener("click", () => {
+      console.log("Clicked");
+    });
+
+    greetBtn.addEventListener("mouseover", () => {
+      greetBtn.style.backgroundColor = "yellow";
+    });
+
+    greetBtn.addEventListener("mouseout", () => {
+      greetBtn.style.backgroundColor = "white";
+    });
+
+    let count = 0;
+    const counterDisplay = document.getElementById("counter");
+    const incrementBtn = document.getElementById("incrementBtn");
+    const decrementBtn = document.getElementById("decrementBtn");
+    const resetBtn = document.getElementById("resetBtn");
+
+    incrementBtn.addEventListener("click", () => {
+      count++;
+      counterDisplay.textContent = count;
+    });
+
+    decrementBtn.addEventListener("click", () => {
+      count--;
+      counterDisplay.textContent = count;
+    });
+
+    resetBtn.addEventListener("click", () => {
+      count = 0;
+      counterDisplay.textContent = count;
+    });
+
+    const textInput = document.getElementById("textInput");
+    const charCount = document.getElementById("charCount");
+
+    textInput.addEventListener("input", () => {
+      const length = textInput.value.length;
+      charCount.textContent = `Character count: ${length}`;
+    });
+  </script>
+</html>

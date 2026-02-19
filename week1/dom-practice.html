@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Practice</title>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+      .large {
+        font-size: 24px;
+      }
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Original Title</h1>
+    <p id="description">Original description text</p>
+    <div id="box" style="width: 100px; height: 100px; background: blue"></div>
+    <input type="text" id="nameInput" value="" />
+    <p id="output"></p>
+  </body>
+  <script>
+    const title = document.getElementById("title");
+    title.textContent = "DOM Manipulation Practice";
+
+    const description = document.getElementById("description");
+    description.textContent = "Learning Javascript DOM";
+    description.classList.add("highlight");
+
+    const box = document.getElementById("box");
+    box.style.backgroundColor = "green";
+    box.style.width = "200px";
+    box.style.height = "100px";
+
+    const nameInput = document.getElementById("nameInput");
+    nameInput.value = "Your Name";
+
+    const output = document.getElementById("output");
+    output.textContent = "DOM Manipulation is fun!";
+    output.classList.add("large");
+  </script>
+</html>
