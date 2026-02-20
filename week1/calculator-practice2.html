@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Calculator</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 16px;
+      }
+      button {
+        width: 48%;
+        padding: 15px;
+        margin: 5px 1%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      #result {
+        font-size: 24px;
+        font-weight: bold;
+        margin: 20px 0;
+        padding: 15px;
+        background: #f0f0f0;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Simple Calculator</h1>
+
+    <input type="number" id="num1" placeholder="Enter first number" />
+    <input type="number" id="num2" placeholder="Enter second number" />
+
+    <button id="addBtn">Add (+)</button>
+    <button id="subtractBtn">Substract (-)</button>
+    <button id="multiplyBtn">Multiply (x)</button>
+    <button id="divideBtn">Divide (/)</button>
+
+    <div id="result">Result: -</div>
+
+    <button id="clearBtn" style="width: 100%">Clear</button>
+
+    <script>
+      const num1Input = document.getElementById("num1");
+      const num2Input = document.getElementById("num2");
+      const resultDisplay = document.getElementById("result");
+
+      function getNumbers() {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        return { num1, num2 };
+      }
+
+      function isValid(num1, num2) {
+        if (isNaN(num1) || isNaN(num2)) {
+          resultDisplay.textContent = "Error: Please enter valid numbers";
+          return false;
+        }
+        return true;
+      }
+
+      document.getElementById("addBtn").addEventListener("click", () => {
+        const { num1, num2 } = getNumbers();
+        if (!isValid(num1, num2)) return;
+
+        const result = num1 + num2;
+        resultDisplay.textContent = `Result: ${result}`;
+      });
+
+      document.getElementById("subtractBtn").addEventListener("click", () => {
+        const { num1, num2 } = getNumbers();
+        if (!isValid(num1, num2)) return;
+
+        const result = num1 - num2;
+        resultDisplay.textContent = `Result: ${result}`;
+      });
+
+      document.getElementById("multiplyBtn").addEventListener("click", () => {
+        const { num1, num2 } = getNumbers();
+        if (!isValid(num1, num2)) return;
+
+        const result = num1 * num2;
+        resultDisplay.textContent = `Result: ${result}`;
+      });
+
+      document.getElementById("divideBtn").addEventListener("click", () => {
+        const { num1, num2 } = getNumbers();
+        if (!isValid(num1, num2)) return;
+
+        if (num2 === 0) {
+          resultDisplay.textContent = "Error: Canot divide by zero";
+          return;
+        }
+
+        const result = num1 / num2;
+        resultDisplay.textContent = `Result: ${result}`;
+      });
+
+      document.getElementById("clearBtn").addEventListener("click", () => {
+        num1Input.value = "";
+        num2Input.value = "";
+        resultDisplay.textContent = "Result: -";
+      });
+    </script>
+  </body>
+</html>

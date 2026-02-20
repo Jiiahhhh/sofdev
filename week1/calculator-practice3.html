@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Practices</title>
+  </head>
+  <body>
+    <h1>Calculator Practice</h1>
+    <input type="number" id="num1" placeholder="First number" />
+    <input type="number" id="num2" placeholder="Second number" />
+
+    <button id="addBtn">Add</button>
+    <button id="multiplyBtn">Multiply</button>
+    <button id="powerBtn">Power (num1 ^ num2)</button>
+
+    <div id="result">Result: -</div>
+
+    <hr />
+
+    <h2>Temparature Converter</h2>
+    <input type="number" id="celsius" placeholder="Celsius" />
+    <button id="convertBtn">Convert to Fahrenheit</button>
+    <div id="fahrenheit">Fahrenheit: -</div>
+
+    <script>
+      //soal 1
+      const num1Input = document.getElementById("num1");
+      const num2Input = document.getElementById("num2");
+      const numCelsius = document.getElementById("celsius");
+      const resultDisplay = document.getElementById("result");
+      const resultFahrenheit = document.getElementById("fahrenheit");
+
+      function getNumbers() {
+        const num1 = parseFloat(num1Input.value);
+        const num2 = parseFloat(num2Input.value);
+        return { num1, num2 };
+      }
+
+      function isValid(num1, num2) {
+        if (isNaN(num1) || isNaN(num2)) {
+          resultDisplay.textContent = "Error: Please enter valid numbers";
+          return false;
+        }
+        return true;
+      }
+
+      document.getElementById("addBtn").addEventListener("click", () => {
+        const { num1, num2 } = getNumbers();
+        if (!isValid(num1, num2)) return;
+
+        const result = num1 + num2;
+
+        //soal 5
+        if (result < 0) {
+          resultDisplay.textContent = "Result cannot be negative";
+          return;
+        }
+        resultDisplay.textContent = `Result: ${result}`;
+      });
+
+      //soal 2
+      document.getElementById("multiplyBtn").addEventListener("click", () => {
+        const { num1, num2 } = getNumbers();
+        if (!isValid(num1, num2)) return;
+
+        const result = num1 * num2;
+        resultDisplay.textContent = `Result: ${result}`;
+      });
+
+      //soal 3
+      document.getElementById("powerBtn").addEventListener("click", () => {
+        const { num1, num2 } = getNumbers();
+        if (!isValid(num1, num2)) return;
+
+        const result = num1 ** num2;
+        resultDisplay.textContent = `Result: ${result}`;
+      });
+
+      //soal 4
+      document.getElementById("convertBtn").addEventListener("click", () => {
+        const number = parseFloat(numCelsius.value);
+        if (isNaN(number)) {
+          resultFahrenheit.textContent = "Error: Please enter valid numbers";
+          return;
+        }
+
+        const fahrenheit = (number * 9) / 5 + 32;
+        resultFahrenheit.textContent = `Fahrenheit: ${fahrenheit}°F`;
+      });
+    </script>
+  </body>
+</html>

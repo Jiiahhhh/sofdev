@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="number" id="num1" placeholder="Enter number" />
+    <input type="number" id="num2" placeholder="Enter number" />
+    <button id="btnAdd">Tambah</button>
+    <button id="btnDivide">Bagi</button>
+    <button id="btnClear">Bersihkan</button>
+
+    <p id="result"></p>
+
+    <script>
+      const num1Input = document.getElementById("num1");
+      const num2Input = document.getElementById("num2");
+      const btnAdd = document.getElementById("btnAdd");
+      const btnDivide = document.getElementById("btnDivide");
+      const btnClear = document.getElementById("btnClear");
+      const resultDisplay = document.getElementById("result");
+
+      let number1;
+      let number2;
+      let result;
+
+      function nan(num1, num2) {
+        if (isNaN(num1) || isNaN(num1)) {
+          alert("Please enter valid number");
+          return;
+        }
+      }
+
+      function plus() {
+        number1 = parseFloat(num1Input.value);
+        number2 = parseFloat(num2Input.value);
+        nan(number1, number2);
+        result = number1 + number2;
+        resultDisplay.textContent = result;
+      }
+
+      function divide() {
+        number1 = parseFloat(num1Input.value);
+        number2 = parseFloat(num2Input.value);
+        nan(number1, number2);
+        if (num2 === 0) {
+          resultDisplay.textContent = "Error: Cannot divide by zero";
+          return;
+        }
+        result = number1 / number2;
+        resultDisplay.textContent = result;
+      }
+
+      function clear() {
+        num1Input.value = "";
+        num2Input.value = "";
+        resultDisplay.textContent = "";
+      }
+
+      btnAdd.addEventListener("click", plus);
+      btnDivide.addEventListener("click", divide);
+      btnClear.addEventListener("click", clear);
+    </script>
+  </body>
+</html>
