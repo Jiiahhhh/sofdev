@@ -1,4 +1,4 @@
-// soal 1 (44/50)
+// soal 1 (38/50)
 //TODO:
 // 1. Use a for loop to print numbers 1-10
 for (let i = 1; i <= 10; i++) {
@@ -26,7 +26,7 @@ while (value > 10) {
   console.log(`${counter}: ${value}`);
 }
 
-//soal 2 (45/50)
+//soal 2 (35/50)
 const scores = [78, 85, 92, 67, 95, 72, 88, 60, 91, 75];
 //TODO using LOOP (not array methods!):
 // 1. Calculate average score
@@ -69,7 +69,7 @@ for (const s of scores) {
 }
 console.log(passingArray);
 
-//soal 3 (45/50)
+//soal 3 (40/50)
 const school = {
   name: "SMA Negeri 1",
   city: "Makassar",
@@ -98,7 +98,7 @@ for (const key in school) {
 }
 //    Display those properties
 
-//Soal 4 (48/50)
+//Soal 4 (45/50)
 // Create FizzBuzz from 1 to 50:
 // - Multiple of 3: print "Fizz"
 // - Multiple of 5: print "Buzz"
@@ -121,7 +121,7 @@ for (let i = 1; i <= 50; i++) {
 }
 console.log(fizzBuzz);
 
-// soal 5 (46/50)
+// soal 5 (35/50)
 const classGroup = [
   { name: "Andi", score: [80, 85, 90, 75] },
   { name: "Bela", score: [92, 88, 95, 91] },
