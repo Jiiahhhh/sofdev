@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>e.target vs e.currentTarget</title>
+  </head>
+  <body>
+    <ul id="fruit-list">
+      <li>
+        🍎 Apple
+        <button class="delete-btn">Delete</button>
+      </li>
+      <li>
+        🥭 Mango
+        <button class="delete-btn">Delete</button>
+      </li>
+      <li>
+        🍌 Banana
+        <button class="delete-btn">Delete</button>
+      </li>
+    </ul>
+
+    <script>
+      document.getElementById("fruit-list").addEventListener("click", (e) => {
+        console.log("e.target", e.target);
+        console.log("e.currentTarget", e.currentTarget);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Bubbling</title>
+  </head>
+  <body>
+    <ul id="fruit-list">
+      <li id="item-apple">🍎 Apple <button id="btn-apple">Delete</button></li>
+    </ul>
+
+    <script>
+      document.getElementById("btn-apple").addEventListener("click", () => {
+        console.log("1. button clicked");
+      });
+
+      document.getElementById("item-apple").addEventListener("click", () => {
+        console.log("2. event goes up to li");
+      });
+
+      document.getElementById("fruit-list").addEventListener("click", () => {
+        console.log("3. event goes up to ul");
+      });
+
+      document.body.addEventListener("click", () => {
+        console.log("4. event goes up to body");
+      });
+    </script>
+  </body>
+</html>

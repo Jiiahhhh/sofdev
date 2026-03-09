@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Delegation</title>
+  </head>
+  <body>
+    <ul id="fruit-list">
+      <li>
+        🍎 Apple
+        <button class="delete-btn">Delete</button>
+      </li>
+      <li>
+        🥭 Mango
+        <button class="delete-btn">Delete</button>
+      </li>
+      <li>
+        🍌 Banana
+        <button class="delete-btn">Delete</button>
+      </li>
+    </ul>
+
+    <script>
+      const fruitList = document.getElementById("fruit-list");
+
+      fruitList.addEventListener("click", (e) => {
+        if (e.target.classList.contains("delete-btn")) {
+          e.target.parentElement.remove();
+        }
+      });
+    </script>
+  </body>
+</html>

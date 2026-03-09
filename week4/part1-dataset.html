@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dataset</title>
+  </head>
+  <body>
+    <ul id="fruit-list">
+      <li data-id="1" data-category="tropical">
+        🍎 Apple <button class="delete-btn">Delete</button>
+      </li>
+      <li data-id="2" data-category="temperate">
+        🥭 Mango <button class="delete-btn">Delete</button>
+      </li>
+      <li data-id="3" data-category="tropical">
+        🍌 Banana <button class="delete-btn">Delete</button>
+      </li>
+    </ul>
+
+    <script>
+      document.getElementById("fruit-list").addEventListener("click", (e) => {
+        const li = e.target.parentElement;
+
+        console.log("id:", li.dataset.id);
+        console.log("category:", li.dataset.category);
+        console.log("typeof id:", typeof li.dataset.id);
+
+        li.remove();
+      });
+    </script>
+  </body>
+</html>
