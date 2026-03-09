@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigasi ke Samping</title>
+  </head>
+  <body>
+    <ul id="fruit-list">
+      <li class="item">🍎 Apple</li>
+      <li class="item active">🥭 Mango</li>
+      <li class="item">🍌 Banana</li>
+    </ul>
+
+    <script>
+      const mango = document.querySelector(".active");
+
+      // ke samping
+      console.log(mango.nextElementSibling);
+      console.log(mango.previousElementSibling);
+
+      // kalau sudah di ujung, return null
+      const apple = document.querySelector(".item");
+      if (apple.previousElementSibling) {
+        console.log(apple.previousElementSibling);
+      }
+
+      const banana = document.querySelector(".item:last-child");
+      console.log(banana.nextElementSibling);
+    </script>
+  </body>
+</html>

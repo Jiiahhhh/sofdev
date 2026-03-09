@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigasi ke Bawah</title>
+  </head>
+  <body>
+    <div id="container">
+      <ul id="fruit-list">
+        <li class="item">🍎 Apple</li>
+        <li class="item">🥭 Mango</li>
+        <li class="item">🍌 Banana</li>
+      </ul>
+    </div>
+
+    <script>
+      const ul = document.getElementById("fruit-list");
+
+      // children - semua direct children
+      console.log(ul.children);
+      console.log(ul.children.length);
+      console.log(ul.children[0]);
+
+      // firstElementChild & lastElementChild
+      console.log(ul.firstElementChild);
+      console.log(ul.lastElementChild);
+
+      // querySelector di dalam element tertentu
+      const container = document.getElementById("container");
+      console.log(container.querySelector(".item"));
+      console.log(container.querySelectorAll(".item"));
+    </script>
+  </body>
+</html>

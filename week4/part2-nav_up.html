@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigate to Top</title>
+  </head>
+  <body>
+    <div class="card" data-category="fruit">
+      <ul class="item-list">
+        <li class="item">
+          🍎 Apple <button class="delete-btn">Delete</button>
+        </li>
+        <li class="item">
+          🥭 Mango <button class="delete-btn">Delete</button>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      const btn = document.querySelector(".delete-btn");
+      // parentElement - naik satu level
+      console.log(btn.parentElement);
+      console.log(btn.parentElement.parentElement);
+
+      // closest () - naik sampai ketemu selector
+      console.log(btn.closest("li"));
+      console.log(btn.closest(".card"));
+      console.log(btn.closest(".card").dataset.category);
+    </script>
+  </body>
+</html>
