@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>insertAdjacentHTML</title>
+  </head>
+  <body>
+    <ul id="fruit-list">
+      <li>🍎 Apple</li>
+    </ul>
+
+    <script>
+      const ul = document.getElementById("fruit-list");
+
+      // Tambah di paling bawah - paling sering dipakai
+      ul.insertAdjacentHTML("beforeend", "<li>🥭 Mango</li>");
+
+      // Tambah di paling atas
+      ul.insertAdjacentHTML("afterbegin", "<li>🍌 Banana</li>");
+
+      // Hasil urutan: Banana -> Apple -> Mango
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>createElement</title>
+  </head>
+  <body>
+    <ul id="fruit-list"></ul>
+
+    <script>
+      const ul = document.getElementById("fruit-list");
+
+      // Buat element baru
+      const li = document.createElement("li");
+
+      // Set propertinya
+      li.className = "fruit-item";
+      li.dataset.id = "1";
+      li.textContent = "🍎 Apple";
+
+      // Tambahkan ke DOM
+      ul.appendChild(li);
+
+      console.log(li);
+    </script>
+  </body>
+</html>

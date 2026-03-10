@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Render Array ke DOM</title>
+  </head>
+  <body>
+    <ul id="fruit-list"></ul>
+
+    <script>
+      const fruits = [
+        { id: 1, name: "🍎 Apple", done: false },
+        { id: 2, name: "🥭 Mango", done: true },
+        { id: 3, name: "🍌 Banana", done: false },
+      ];
+
+      function renderFruits() {
+        const ul = document.getElementById("fruit-list");
+
+        ul.innerHTML = fruits
+          .map(
+            (fruit) => `
+                <li class="fruit-item ${fruit.done ? "done" : ""}" data-id="${fruit.id}">
+                    ${fruit.name}
+                    <button class="delete-btn">Delete</button>
+                </li>
+            `,
+          )
+          .join("");
+      }
+
+      renderFruits();
+    </script>
+  </body>
+</html>
