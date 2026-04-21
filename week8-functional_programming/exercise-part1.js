@@ -22,13 +22,13 @@ function saveUser(user) {
 }
 
 // Fungsi C (PURE)
-function saveUser(user) {
+function serializeUser(user) {
   return JSON.stringify(user);
 }
 
 // Fungsi D (PURE)
 function formatName(first, last) {
-  return `${first}${last}`.trim();
+  return `${first} ${last}`.trim();
 }
 
 // Soal 2
