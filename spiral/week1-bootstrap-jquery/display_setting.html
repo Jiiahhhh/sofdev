@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Display Setting</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <!-- Testing Display -->
+    <!-- Block (Vertical), bisa ditambahkan width -->
+    <div class="pt-3">
+      <span class="d-block bg-primary text-white p-2 mb-2"
+        >Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque
+        faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi
+        pretium tellus duis convallis. Tempus leo eu aenean sed diam urna
+        tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas.
+        Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit
+        semper vel class aptent taciti sociosqu. Ad litora torquent per conubia
+        nostra inceptos himenaeos. Lorem ipsum dolor sit amet consectetur
+        adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem
+        placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu
+        aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus
+        bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc
+        posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora
+        torquent per conubia nostra inceptos himenaeos.</span
+      >
+      <span class="d-block bg-primary text-white p-2" style="width: 150px"
+        >Block 2</span
+      >
+    </div>
+
+    <!-- Inline (Horizontal), tidak bisa ditambahkan width-->
+    <div class="pt-3">
+      <span class="d-inline bg-primary text-white p-2" style="width: 1500px"
+        >Inline 1</span
+      >
+      <span class="d-inline bg-success text-white p-2" style="width: 1500px"
+        >Inline 2</span
+      >
+    </div>
+
+    <!-- Inline-Block (hoziontal -> vertical), bisa ditambahkan width -->
+    <div class="pt-3">
+      <div
+        class="d-inline-block bg-primary text-white p-2 me-2"
+        style="width: 1500px"
+      >
+        Card A
+      </div>
+      <div
+        class="d-inline-block bg-success text-white p-2"
+        style="width: 1050px"
+      >
+        Card B
+      </div>
+    </div>
+
+    <!-- Flex -->
+    <div
+      class="d-flex justify-content-between align-items-center bg-light p-3 border"
+    >
+      <div>Logo</div>
+      <div>Menu</div>
+    </div>
+
+    <!-- None -->
+    <div class="d-none">Saya disembunyikan</div>
+    <div class="d-none d-md-block">Hanya tampil di tablet ke atas</div>
+
+    <div class="d-flex flex-column align-items-center">
+      <button>A</button>
+      <button>B</button>
+    </div>
+
+    <div
+      class="d-flex flex-column justify-content-end align-items-start"
+      style="height: 200px"
+    >
+      <div>A</div>
+      <div>B</div>
+    </div>
+
+    <div
+      class="d-flex justify-content-center align-items-end"
+      style="height: 200px"
+    >
+      <div>A</div>
+      <div>B</div>
+    </div>
+  </body>
+</html>

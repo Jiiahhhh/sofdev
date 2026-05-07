@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select 2 Practice</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css"
+    />
+  </head>
+  <body>
+    <div class="container mt-5" style="max-width: 400px">
+      <h3>Add Game</h3>
+
+      <div class="mb-3">
+        <label class="form-label">Genre</label>
+        <select id="genreSelect" class="form-select">
+          <option value="">-- Pilih Genre --</option>
+          <option value="rpg">RPG</option>
+          <option value="fps">FPS</option>
+          <option value="sports">Sports</option>
+          <option value="simulation">Simulation</option>
+          <option value="sandbox">Sandbox</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Platform (bisa pilih lebih dari satu)</label>
+        <select id="platformSelect" class="form-select" multiple>
+          <option value="pc">PC</option>
+          <option value="ps5">PlayStation 5</option>
+          <option value="ps4">PlayStation 4</option>
+          <option value="xbox">Xbox Series X</option>
+          <option value="switch">Nintendo Switch</option>
+        </select>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@4.0.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        // Dropdown biasa dengan search
+        $("#genreSelect").select2({
+          theme: "bootstrap-5",
+          placeholder: "-- Pilih Game --",
+        });
+
+        // Multi-select dengan search
+        $("#platformSelect").select2({
+          theme: "bootstrap-5",
+          placeholder: "Pilih platform...",
+        });
+      });
+    </script>
+  </body>
+</html>
