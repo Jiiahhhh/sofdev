@@ -9,5 +9,3 @@
 //= require popper.min
 //= require bootstrap
 //= require_self
-
-console.log("Grails asset pipeline loaded");
