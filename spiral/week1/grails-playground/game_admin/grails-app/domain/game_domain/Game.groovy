@@ -8,5 +8,8 @@ class Game {
     Date releaseDate
 
     static constraints = {
+        name blank: false, maxSize: 100
+        genre blank: false, maxSize: 50
+        status blank: false
     }
 }

@@ -1,18 +1,15 @@
 (function ($) {
     $(function () {
-        let gameId = 4;
-        let editingRow = null;
 
         const $modal = $("#gameModal");
-        const $tbody = $("#gameTableBody");
         const $gameName = $("#gameName");
         const $gameGenre = $("#gameGenre");
         const $searchGame = $("#searchGame");
 
         // Open modal
         $("#btnOpenModal").click(function () {
-            editingRow = null;
             resetForm();
+            $("#gameId").val("");
             $modal.modal("show");
         });
 
@@ -20,40 +17,15 @@
             $("#btnOpenModal").trigger("focus");
         });
 
-        // Save game
-        $("#btnSaveGame").click(function () {
-            const name = $("#gameName").val().trim();
-            const genre = $("#gameGenre").val().trim();
-
-            if (!name || !genre) {
-                alert("Please fill all fields.");
-                return;
-            }
-
-            if (editingRow) {
-                updateRow(editingRow, name, genre);
-                editingRow = null;
-            } else {
-                appendRow(name, genre);
-            }
-            resetForm();
-            $modal.modal("hide");
-        });
-
-        // Delete row (event delegation)
-        $(document).on("click", ".btn-delete", function () {
-            $(this).closest("tr").remove();
-        });
-
         $(document).on("click", ".btn-edit", function () {
-            const $row = $(this).closest("tr");
-            const name = $row.find("td:eq(1)").text();
-            const genre = $row.find("td:eq(2)").text();
+            const id = $(this).data("id");
+            const name = $(this).data("name");
+            const genre = $(this).data("genre");
 
-            $gameName.val(name);
-            $gameGenre.val(genre);
-            editingRow = $row;
-            $modal.modal("show");
+            $("#gameId").val(id)
+            $("#gameName").val(name);
+            $("#gameGenre").val(genre);
+            $("#gameModal").modal("show");
         });
 
         $searchGame.on("keyup", function () {
@@ -63,32 +35,6 @@
                 $(this).toggle(rowText.includes(keyword));
             });
         });
-
-        // Append new row
-        function appendRow(name, genre) {
-            const row = `
-        <tr>
-            <td>${gameId}</td>
-            <td>${name}</td>
-            <td>${genre}</td>
-            <td>
-                <span class="badge text-bg-warning">Draft</span>
-            </td>
-            <td>2026-04-28</td>
-            <td class="text-end">
-                <button class="btn btn-sm btn-outline-primary btn-edit">Edit</button>
-                <button class="btn btn-sm btn-outline-danger btn-delete">Delete</button>
-            </td>
-        </tr>
-    `;
-            $tbody.append(row);
-            gameId++;
-        }
-
-        function updateRow($row, name, genre) {
-            $row.find("td:eq(1)").text(name);
-            $row.find("td:eq(2)").text(genre);
-        }
 
         //Reset form
         function resetForm() {

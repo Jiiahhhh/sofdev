@@ -7,8 +7,7 @@
     <asset:stylesheet src="bootstrap.min.css"/>
     <link
             rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    />
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
     <asset:stylesheet src="game.css"/>
 </head>
 
@@ -50,7 +49,21 @@
         </div>
 
         <!-- Card -->
+        <g:if test="${flash.message}">
+            <div class="alert alert-success">
+                ${flash.message}
+            </div>
+        </g:if>
         <div class="card shadow-sm">
+            <g:hasErrors bean="${game}">
+                <div class="alert alert-danger">
+                    <g:eachError bean="${game}" var="error">
+                        <div>
+                            <g:message error="${error}"/>
+                        </div>
+                    </g:eachError>
+                </div>
+            </g:hasErrors>
             <div class="card-body">
                 <!-- Top Actions -->
                 <div class="d-flex gap-2 mb-3 align-items-center">
@@ -98,12 +111,14 @@
                                     <g:formatDate date="${game.releaseDate}" format="yyyy-MM-dd"/>
                                 </td>
                                 <td class="text-end">
-                                    <button class="btn btn-sm btn-outline-primary btn-edit">
+                                    <button type="button" class="btn btn-sm btn-outline-primary btn-edit" data-id="${game.id}"
+                                            data-name="${game.name}" data-genre="${game.genre}">
                                         Edit
                                     </button>
-                                    <button class="btn btn-sm btn-outline-danger">
+                                    <g:link controller="game" action="deleteGame" id="${game.id}"
+                                            class="btn btn-sm btn-outline-danger">
                                         Delete
-                                    </button>
+                                    </g:link>
                                 </td>
                             </tr>
                         </g:each>
@@ -118,32 +133,36 @@
 <div class="modal fade" id="gameModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Add New Game</h5>
-                <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"></button>
-            </div>
-
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label class="form-label">Game Name</label>
-                    <input type="text" class="form-control" id="gameName"/>
+            <g:form controller="game" action="save">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Game</h5>
+                    <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"></button>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Genre</label>
-                    <input type="text" class="form-control" id="gameGenre"/>
-                </div>
-            </div>
+                <input type="hidden" name="id" id="gameId">
 
-            <div class="modal-footer">
-                <button class="btn btn-secondary" data-bs-dismiss="modal">
-                    Cancel
-                </button>
-                <button class="btn btn-primary" id="btnSaveGame">Save Game</button>
-            </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Game Name</label>
+                        <input type="text" class="form-control" name="name" id="gameName"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Genre</label>
+                        <input type="text" class="form-control" name="genre" id="gameGenre"/>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">
+                        Cancel
+                    </button>
+                    <button class="btn btn-primary" type="submit">Save Game</button>
+                </div>
+            </g:form>
         </div>
     </div>
 </div>
